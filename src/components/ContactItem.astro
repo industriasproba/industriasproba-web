@@ -1,0 +1,32 @@
+---
+import { Phone, Mail, MapPin } from '@lucide/astro';
+
+const {
+  name,
+  text,
+  href,
+  size = 20,
+  class: className = ''
+} = Astro.props;
+
+const icons = {
+  phone: Phone,
+  email: Mail,
+  address: MapPin,
+};
+
+const IconComponent = icons[name];
+---
+
+{IconComponent && (
+  <p class={`flex items-center gap-2 ${className}`}>
+    <IconComponent size={size} class="flex-shrink-0 text-primary" />
+    {href ? (
+      <a href={href} class="hover:text-primary transition-colors">
+        {text}
+      </a>
+    ) : (
+      <span>{text}</span>
+    )}
+  </p>
+)}

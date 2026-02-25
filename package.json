@@ -10,8 +10,12 @@
   "dependencies": {
     "@fontsource-variable/inter": "5.2.8",
     "@fontsource-variable/montserrat": "5.2.8",
+    "@lucide/astro": "0.575.0",
     "@tailwindcss/vite": "4.2.1",
     "astro": "5.16.16",
     "tailwindcss": "4.2.1"
+  },
+  "devDependencies": {
+    "daisyui": "5.5.19"
   }
 }

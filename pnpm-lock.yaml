@@ -9,11 +9,14 @@ importers:
   .:
     dependencies:
       '@fontsource-variable/inter':
-        specifier: ^5.2.8
+        specifier: 5.2.8
         version: 5.2.8
       '@fontsource-variable/montserrat':
-        specifier: ^5.2.8
+        specifier: 5.2.8
         version: 5.2.8
+      '@lucide/astro':
+        specifier: ^0.575.0
+        version: 0.575.0(astro@5.16.16(jiti@2.6.1)(lightningcss@1.31.1)(rollup@4.57.0)(typescript@5.9.3))
       '@tailwindcss/vite':
         specifier: 4.2.1
         version: 4.2.1(vite@6.4.1(jiti@2.6.1)(lightningcss@1.31.1))
@@ -23,6 +26,10 @@ importers:
       tailwindcss:
         specifier: 4.2.1
         version: 4.2.1
+    devDependencies:
+      daisyui:
+        specifier: 5.5.19
+        version: 5.5.19
 
 packages:
 
@@ -397,6 +404,11 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
+
+  '@lucide/astro@0.575.0':
+    resolution: {integrity: sha512-hU47BbgApVR473CxSk6C4OBxqO0P91ZrY9uYvQB7xqW9f5mqmkz1RJ4jl2iK2LovntrrfAZix5ce+r7v2+2gHg==}
+    peerDependencies:
+      astro: ^4 || ^5
 
   '@oslojs/encoding@1.1.0':
     resolution: {integrity: sha512-70wQhgYmndg4GCPxPPxPGevRKqTIJ2Nh4OkiMWmDAVYsTQ+Ta7Sq+rPevXyXGdzr30/qZBnyOalCszoMxlyldQ==}
@@ -822,6 +834,9 @@ packages:
   csso@5.0.5:
     resolution: {integrity: sha512-0LrrStPOdJj+SPCCrGhzryycLjwcgUSHBtxNA8aIDxf0GLsRh1cKYhB00Gd1lDOS4yGH69+SNn13+TWbVHETFQ==}
     engines: {node: ^10 || ^12.20.0 || ^14.13.0 || >=15.0.0, npm: '>=7.0.0'}
+
+  daisyui@5.5.19:
+    resolution: {integrity: sha512-pbFAkl1VCEh/MPCeclKL61I/MqRIFFhNU7yiXoDDRapXN4/qNCoMxeCCswyxEEhqL5eiTTfwHvucFtOE71C9sA==}
 
   debug@4.4.3:
     resolution: {integrity: sha512-RGwwWnwQvkVfavKVt22FGLw+xYSdzARwm0ru6DhTVA3umU5hZc28V3kO4stgYryrTlLpuvgI9GiijltAjNbcqA==}
@@ -1996,6 +2011,10 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
+  '@lucide/astro@0.575.0(astro@5.16.16(jiti@2.6.1)(lightningcss@1.31.1)(rollup@4.57.0)(typescript@5.9.3))':
+    dependencies:
+      astro: 5.16.16(jiti@2.6.1)(lightningcss@1.31.1)(rollup@4.57.0)(typescript@5.9.3)
+
   '@oslojs/encoding@1.1.0': {}
 
   '@rollup/pluginutils@5.3.0(rollup@4.57.0)':
@@ -2411,6 +2430,8 @@ snapshots:
   csso@5.0.5:
     dependencies:
       css-tree: 2.2.1
+
+  daisyui@5.5.19: {}
 
   debug@4.4.3:
     dependencies:

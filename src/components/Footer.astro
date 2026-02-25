@@ -1,20 +1,31 @@
 ---
-import Nav from './Nav.astro';
-import Icon from './Icon.astro';
+import Logo from './Logo.astro';
+import NavLinks from './NavLinks.astro';
+import ContactItem from './ContactItem.astro';
 
-const { title } = Astro.props;
-const { phone, email, address } = Astro.props;
+const { title, phone, email, address } = Astro.props;
 ---
-<footer>
-  <div>
-    <p>© 2026 {title}. Todos los derechos reservados.</p>
+<footer class="bg-base-200 text-base-content">
+  <div class="footer sm:footer-horizontal p-10">
+    <aside>
+      <Logo />
+    </aside>
+    <nav>
+      <NavLinks />
+    </nav>
+    <nav>
+      <ContactItem name="phone" text={phone} href={`tel:${phone}`} />
+      <ContactItem name="email" text={email} href={`mailto:${email}`} />
+      <ContactItem
+        name="address"
+        text={address}
+        href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`}
+      />
+    </nav>
   </div>
-  <div>
-    <Nav />
-  </div>
-  <div>
-    <p><Icon />{phone}</p>
-    <p><Icon />{email}</p>
-    <p><Icon />{address}</p>
+  <div class="footer footer-center border-base-300 border-t px-10 py-4">
+    <aside>
+      <p>© 2026 Industrias Proba SA. Todos los derechos reservados.</p>
+    </aside>
   </div>
 </footer>
