@@ -23,13 +23,12 @@ importers:
       astro:
         specifier: 5.16.16
         version: 5.16.16(jiti@2.6.1)(lightningcss@1.31.1)(rollup@4.57.0)(typescript@5.9.3)
-      tailwindcss:
-        specifier: 4.2.1
-        version: 4.2.1
-    devDependencies:
       daisyui:
         specifier: 5.5.19
         version: 5.5.19
+      tailwindcss:
+        specifier: 4.2.1
+        version: 4.2.1
 
 packages:
 

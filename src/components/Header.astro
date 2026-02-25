@@ -1,16 +1,17 @@
 ---
 import Logo from './Logo.astro';
 import NavLinks from './NavLinks.astro';
+import { Menu } from '@lucide/astro';
 ---
-<header class="navbar bg-base-100 shadow-sm">
+
+<header class="bg-base-100 shadow-sm">
+  <div class="navbar max-w-7xl mx-auto px-4">
   <div class="navbar-start">
     <!-- Mobile menu -->
     <div class="dropdown">
-      <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
-        </svg>
-      </div>
+      <button aria-label="Abrir menú" class="btn btn-ghost lg:hidden">
+        <Menu size={20} />
+      </button>
       <NavLinks variant="header-mobile" />
     </div>
     <Logo />
@@ -19,5 +20,6 @@ import NavLinks from './NavLinks.astro';
   <!-- Desktop menu -->
   <div class="navbar-center hidden lg:flex">
     <NavLinks variant="header-desktop" />
+  </div>
   </div>
 </header>

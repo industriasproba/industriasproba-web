@@ -3,17 +3,17 @@ import Logo from './Logo.astro';
 import NavLinks from './NavLinks.astro';
 import ContactItem from './ContactItem.astro';
 
-const { title, phone, email, address } = Astro.props;
+const { phone, email, address } = Astro.props;
 ---
 <footer class="bg-base-200 text-base-content">
-  <div class="footer sm:footer-horizontal p-10">
+  <div class="footer sm:footer-horizontal max-w-7xl mx-auto px-10 py-10">
     <aside>
       <Logo />
     </aside>
     <nav>
       <NavLinks />
     </nav>
-    <nav>
+    <address>
       <ContactItem name="phone" text={phone} href={`tel:${phone}`} />
       <ContactItem name="email" text={email} href={`mailto:${email}`} />
       <ContactItem
@@ -21,11 +21,9 @@ const { title, phone, email, address } = Astro.props;
         text={address}
         href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`}
       />
-    </nav>
+    </address>
   </div>
-  <div class="footer footer-center border-base-300 border-t px-10 py-4">
-    <aside>
-      <p>© 2026 Industrias Proba SA. Todos los derechos reservados.</p>
-    </aside>
+  <div class="border-base-300 border-t">
+    <p class="max-w-7xl mx-auto px-10 py-4 text-center text-sm">© 2026 Industrias Proba SA. Todos los derechos reservados.</p>
   </div>
 </footer>

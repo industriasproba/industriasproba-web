@@ -16,9 +16,7 @@
     "@lucide/astro": "0.575.0",
     "@tailwindcss/vite": "4.2.1",
     "astro": "5.16.16",
-    "tailwindcss": "4.2.1"
-  },
-  "devDependencies": {
+    "tailwindcss": "4.2.1",
     "daisyui": "5.5.19"
   }
 }
