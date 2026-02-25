@@ -1,0 +1,16 @@
+---
+const {
+  href,
+  text,
+  class: className = '',
+  ...rest
+} = Astro.props;
+---
+
+<a
+  href={href}
+  class={`hover:text-primary transition-colors ${className}`}
+  {...rest}
+>
+  {text}
+</a>

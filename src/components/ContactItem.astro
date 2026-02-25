@@ -1,5 +1,6 @@
 ---
 import { Phone, Mail, MapPin } from '@lucide/astro';
+import Link from './Link.astro';
 
 const {
   name,
@@ -22,9 +23,7 @@ const IconComponent = icons[name];
   <p class={`flex items-center gap-2 ${className}`}>
     <IconComponent size={size} class="flex-shrink-0 text-primary" />
     {href ? (
-      <a href={href} class="hover:text-primary transition-colors">
-        {text}
-      </a>
+      <Link href={href} text={text} />
     ) : (
       <span>{text}</span>
     )}

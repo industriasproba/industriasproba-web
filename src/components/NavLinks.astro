@@ -1,9 +1,37 @@
 ---
+import Link from './Link.astro';
 
+const { variant = 'footer' } = Astro.props;
+
+const links = [
+  { href: '/', label: 'Inicio' },
+  { href: '/about', label: 'Nosotros' },
+  { href: '/services', label: 'Servicios' },
+  { href: '/products', label: 'Productos' },
+  { href: '/contact', label: 'Contacto' },
+];
 ---
-<a href="/">Inicio</a>
-<a href="/about">Nosotros</a>
-<a href="/services">Servicios</a>
-<a href="/products">Productos</a>
-<a href="/contact">Contacto</a>
 
+{variant === 'header-desktop' && (
+  <ul class="menu menu-horizontal px-1">
+    {links.map(link => (
+      <li><Link href={link.href} text={link.label} /></li>
+    ))}
+  </ul>
+)}
+
+{variant === 'header-mobile' && (
+  <ul class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+    {links.map(link => (
+      <li><Link href={link.href} text={link.label} /></li>
+    ))}
+  </ul>
+)}
+
+{variant === 'footer' && (
+  <ul>
+    {links.map(link => (
+      <li><Link href={link.href} text={link.label} /></li>
+    ))}
+  </ul>
+)}
