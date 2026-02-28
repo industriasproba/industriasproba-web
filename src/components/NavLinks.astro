@@ -13,7 +13,7 @@ const links = [
 ---
 
 {variant === 'header-desktop' && (
-  <ul class="menu menu-horizontal px-1">
+  <ul class="flex items-center gap-6 uppercase">
     {links.map(link => (
       <li><Link href={link.href} text={link.label} /></li>
     ))}
@@ -29,7 +29,7 @@ const links = [
 )}
 
 {variant === 'footer' && (
-  <ul>
+  <ul class="flex flex-col gap-2 text-sm">
     {links.map(link => (
       <li><Link href={link.href} text={link.label} /></li>
     ))}

@@ -11,9 +11,11 @@ const { phone, email, address } = Astro.props;
       <Logo />
     </aside>
     <nav>
+      <h6 class="footer-title">Navegación</h6>
       <NavLinks />
     </nav>
-    <address class="not-italic">
+    <address class="not-italic flex flex-col gap-2">
+      <h6 class="footer-title">Contacto</h6>
       <ContactItem name="phone" text={phone} href={`tel:${phone}`} />
       <ContactItem name="email" text={email} href={`mailto:${email}`} />
       <ContactItem
@@ -24,6 +26,6 @@ const { phone, email, address } = Astro.props;
     </address>
   </div>
   <div class="border-base-300 border-t">
-    <p class="max-w-7xl mx-auto px-4 py-4 text-center text-sm">© 2026 Industrias Proba SA. Todos los derechos reservados.</p>
+    <p class="max-w-7xl mx-auto px-4 py-4 text-center text-sm text-base-content/60">© {new Date().getFullYear()} Industrias Proba SA. Todos los derechos reservados.</p>
   </div>
 </footer>

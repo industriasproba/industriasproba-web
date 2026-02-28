@@ -6,7 +6,7 @@ const {
   name,
   text,
   href,
-  size = 20,
+  size = 15,
   class: className = ''
 } = Astro.props;
 
@@ -20,7 +20,7 @@ const IconComponent = icons[name];
 ---
 
 {IconComponent && (
-  <p class={`flex items-center gap-2 ${className}`}>
+  <p class={`flex items-center gap-2 text-sm ${className}`}>
     <IconComponent size={size} class="flex-shrink-0 text-primary" />
     {href ? (
       <Link href={href} text={text} />
