@@ -1,0 +1,134 @@
+---
+import { Phone, Mail, MapPin, MessageCircle } from '@lucide/astro';
+
+const WHATSAPP_NUMBER = "5411XXXXXXXX";
+const WHATSAPP_MESSAGE = "Hola, me contacto desde la web de Industrias Proba. Me gustaría recibir más información.";
+const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+
+const phone = '+54 11 4454 7857';
+const email = 'direccion@industriasproba.com.ar';
+const address = 'Cabrera 92, B1752, Lomas del Mirador, Buenos Aires, Argentina';
+---
+
+<section id="contacto" class="bg-base-200">
+  <div class="max-w-7xl mx-auto px-4 py-16">
+    <header class="text-center mb-16">
+      <p class="text-accent font-medium uppercase tracking-[0.25em] text-sm mb-3">Contacto</p>
+      <h2 class="text-3xl md:text-5xl mb-4">Hablemos</h2>
+      <p class="text-base-content/60 max-w-xl mx-auto leading-relaxed">
+        Estamos para ayudarte. Escribinos y te respondemos a la brevedad.
+      </p>
+    </header>
+
+    <div class="grid md:grid-cols-5 gap-12 max-w-5xl mx-auto items-stretch">
+
+      <!-- Contact info -->
+      <div class="md:col-span-2 flex flex-col gap-6">
+        <div class="bg-base-100 border border-base-300 rounded-sm p-6 flex flex-col gap-6 flex-1">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center shrink-0">
+              <Phone size={18} class="text-accent" />
+            </div>
+            <div>
+              <p class="text-base-content font-medium text-sm mb-0.5">Teléfono</p>
+              <a href={`tel:${phone}`} class="text-base-content/60 text-sm hover:text-accent transition-colors">{phone}</a>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center shrink-0">
+              <Mail size={18} class="text-accent" />
+            </div>
+            <div>
+              <p class="text-base-content font-medium text-sm mb-0.5">Email</p>
+              <a href={`mailto:${email}`} class="text-base-content/60 text-sm hover:text-accent transition-colors">{email}</a>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center shrink-0">
+              <MapPin size={18} class="text-accent" />
+            </div>
+            <div>
+              <p class="text-base-content font-medium text-sm mb-0.5">Ubicación</p>
+              <p class="text-base-content/60 text-sm leading-relaxed">{address}</p>
+            </div>
+          </div>
+        </div>
+
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-success w-full uppercase tracking-wider text-sm gap-3"
+        >
+          <MessageCircle size={20} />
+          Escribinos por WhatsApp
+        </a>
+      </div>
+
+      <!-- Form -->
+      <form id="contact-form" novalidate class="md:col-span-3 flex flex-col gap-5">
+        <div class="grid sm:grid-cols-2 gap-5">
+          <fieldset class="fieldset">
+            <legend class="fieldset-legend">Nombre</legend>
+            <input
+              id="nombre" name="nombre" type="text" required
+              placeholder="Tu nombre"
+              class="input input-bordered w-full focus:border-accent"
+            />
+          </fieldset>
+          <fieldset class="fieldset">
+            <legend class="fieldset-legend">Email</legend>
+            <input
+              id="email" name="email" type="email" required
+              placeholder="tu@email.com"
+              class="input input-bordered w-full focus:border-accent"
+            />
+          </fieldset>
+        </div>
+
+        <fieldset class="fieldset flex-1 flex flex-col">
+          <legend class="fieldset-legend">Mensaje</legend>
+          <textarea
+            id="mensaje" name="mensaje" required
+            placeholder="¿En qué podemos ayudarte?"
+            class="textarea textarea-bordered w-full flex-1 min-h-32 resize-none focus:border-accent"
+          ></textarea>
+        </fieldset>
+
+        <button type="submit" class="btn btn-accent w-full uppercase tracking-wider text-sm">
+          Enviar mensaje
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Full-width map -->
+  <div class="w-full h-72 md:h-88">
+    <iframe
+      title="Ubicación de Industrias Proba"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52560.44885845029!2d-58.4515!3d-34.6037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca3b4ef90cbd%3A0xa0b3812e3e0bbf3e!2sBuenos%20Aires%2C%20Argentina!5e0!3m2!1ses!2sar!4v1700000000000"
+      width="100%"
+      height="100%"
+      style="border:0"
+      allowfullscreen
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const nombre = data.get('nombre') as string;
+    const email = data.get('email') as string;
+    const mensaje = data.get('mensaje') as string;
+    const subject = encodeURIComponent(`Consulta desde la web - ${nombre}`);
+    const body = encodeURIComponent(`Nombre: ${nombre}\nEmail: ${email}\n\n${mensaje}`);
+    window.location.href = `mailto:direccion@industriasproba.com.ar?subject=${subject}&body=${body}`;
+  });
+</script>
