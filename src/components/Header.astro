@@ -6,20 +6,19 @@ import { Menu } from '@lucide/astro';
 
 <header class="bg-base-100 shadow-sm">
   <div class="navbar max-w-7xl mx-auto px-4">
-  <div class="navbar-start">
-    <!-- Mobile menu -->
-    <div class="dropdown">
-      <button aria-label="Abrir menú" class="btn btn-ghost lg:hidden">
-        <Menu size={20} />
-      </button>
-      <NavLinks variant="header-mobile" />
+    <div class="navbar-start">
+      <!-- Mobile menu -->
+      <div class="dropdown">
+        <button aria-label="Abrir menú" class="btn btn-ghost lg:hidden">
+          <Menu size={20} />
+        </button>
+        <NavLinks variant="header-mobile" />
+      </div>
+      <Logo />
     </div>
-    <Logo />
-  </div>
-
-  <!-- Desktop menu -->
-  <div class="navbar-center hidden lg:flex">
-    <NavLinks variant="header-desktop" />
-  </div>
+    <!-- Desktop menu -->
+    <div class="navbar-end hidden lg:flex">
+      <NavLinks variant="header-desktop" />
+    </div>
   </div>
 </header>

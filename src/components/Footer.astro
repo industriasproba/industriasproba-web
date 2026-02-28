@@ -6,14 +6,14 @@ import ContactItem from './ContactItem.astro';
 const { phone, email, address } = Astro.props;
 ---
 <footer class="bg-base-200 text-base-content">
-  <div class="footer sm:footer-horizontal max-w-7xl mx-auto px-10 py-10">
+  <div class="footer sm:footer-horizontal justify-between max-w-7xl mx-auto px-4 py-10">
     <aside>
       <Logo />
     </aside>
     <nav>
       <NavLinks />
     </nav>
-    <address>
+    <address class="not-italic">
       <ContactItem name="phone" text={phone} href={`tel:${phone}`} />
       <ContactItem name="email" text={email} href={`mailto:${email}`} />
       <ContactItem
@@ -24,6 +24,6 @@ const { phone, email, address } = Astro.props;
     </address>
   </div>
   <div class="border-base-300 border-t">
-    <p class="max-w-7xl mx-auto px-10 py-4 text-center text-sm">© 2026 Industrias Proba SA. Todos los derechos reservados.</p>
+    <p class="max-w-7xl mx-auto px-4 py-4 text-center text-sm">© 2026 Industrias Proba SA. Todos los derechos reservados.</p>
   </div>
 </footer>
