@@ -3,6 +3,7 @@ import { Hammer, Zap, PenTool, Repeat2 } from '@lucide/astro';
 
 const { variant = 'light' } = Astro.props;
 const isDark = variant === 'dark';
+const isMedium = variant === 'medium';
 
 const services = [
   {
@@ -28,7 +29,7 @@ const services = [
 ];
 ---
 
-<section id="servicios" class:list={["py-16", isDark ? "bg-neutral" : "bg-base-100"]}>
+<section id="servicios" class:list={["py-16", isDark ? "bg-neutral" : isMedium ? "bg-base-200" : "bg-base-100"]}>
   <div class="max-w-7xl mx-auto px-4">
 
     <header class="text-center mb-16">
@@ -49,7 +50,9 @@ const services = [
           "border rounded-sm p-8 transition-colors group",
           isDark
             ? "border-neutral-content/10 hover:border-accent/50"
-            : "border-base-300 hover:border-accent/50 bg-base-200"
+            : isMedium
+              ? "border-base-300 hover:border-accent/50 bg-base-100"
+              : "border-base-300 hover:border-accent/50 bg-base-200"
         ]}>
           <s.icon size={32} class="text-accent mb-5 group-hover:scale-110 transition-transform" />
           <h3 class:list={["font-display text-2xl mb-3", isDark ? "text-neutral-content" : "text-base-content"]}>

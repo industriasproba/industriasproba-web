@@ -1,0 +1,30 @@
+---
+const clients = [
+  "Industria Automotriz",
+  "Construcción",
+  "Agro",
+  "Energía",
+  "Transporte",
+  "Alimenticia",
+];
+---
+
+<section id="clientes" class="bg-base-100 py-16">
+  <div class="max-w-7xl mx-auto px-4 text-center">
+    <p class="text-accent font-medium uppercase tracking-[0.25em] text-sm mb-3">
+      Quiénes confían en nosotros
+    </p>
+    <h2 class="text-3xl md:text-5xl mb-4">Sectores que acompañamos</h2>
+    <p class="text-base-content/60 max-w-xl mx-auto leading-relaxed mb-14">
+      Trabajamos con empresas de diversos rubros industriales, brindando soluciones metalúrgicas a medida.
+    </p>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
+      {clients.map((client) => (
+        <div class="bg-base-200 border border-base-300 rounded-sm py-6 px-4 flex items-center justify-center hover:border-accent/40 transition-colors">
+          <span class="text-base-content font-medium text-sm uppercase tracking-wider">{client}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
