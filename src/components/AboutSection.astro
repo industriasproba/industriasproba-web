@@ -1,0 +1,70 @@
+---
+import { Shield, Users, Target, Heart } from '@lucide/astro';
+
+const values = [
+  { icon: Shield, title: "Confianza", desc: "Relaciones sólidas construidas con transparencia y cumplimiento." },
+  { icon: Users, title: "Cercanía", desc: "Trato personal y directo con cada uno de nuestros clientes." },
+  { icon: Target, title: "Precisión", desc: "Calidad y exactitud en cada pieza que producimos." },
+  { icon: Heart, title: "Compromiso", desc: "Dedicación genuina al trabajo bien hecho." },
+];
+---
+
+<section id="nosotros" class="bg-base-100 py-16">
+  <div class="max-w-7xl mx-auto px-4">
+
+    <!-- Intro -->
+    <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center mb-20">
+      <div>
+        <p class="text-accent font-medium uppercase tracking-[0.25em] text-sm mb-3">
+          Nuestra historia
+        </p>
+        <h2 class="text-3xl md:text-5xl mb-6">
+          Una empresa familiar con vocación industrial
+        </h2>
+        <p class="text-base-content/60 leading-relaxed mb-4">
+          En Industrias Proba S.A. trabajamos el metal desde 1993, cuando comenzamos en Lomas del Mirador como un emprendimiento pequeño con una fuerte vocación por la calidad. A través de la mejora continua, la inversión en tecnología y la profesionalización de nuestros procesos, crecimos hasta consolidarnos como proveedores Tier 2 de la industria automotriz.
+        </p>
+        <p class="text-base-content/60 leading-relaxed mb-8">
+          En Industrias Proba S.A. trabajamos el metal desde 1993, cuando comenzamos en Lomas del Mirador como un emprendimiento pequeño con una fuerte vocación por la calidad. A través de la mejora continua, la inversión en tecnología y la profesionalización de nuestros procesos, crecimos hasta consolidarnos como proveedores Tier 2 de la industria automotriz.
+        </p>
+
+        <div class="flex gap-12">
+          <div>
+            <p class="text-accent font-display text-4xl mb-1">+15</p>
+            <p class="text-base-content/60 text-sm uppercase tracking-wider">Colaboradores</p>
+          </div>
+          <div>
+            <p class="text-accent font-display text-4xl mb-1">1500m²</p>
+            <p class="text-base-content/60 text-sm uppercase tracking-wider">Superficie planta fabril</p>
+          </div>
+          <div>
+            <p class="text-accent font-display text-4xl mb-1">+2 millones</p>
+            <p class="text-base-content/60 text-sm uppercase tracking-wider">Piezas entregadas en 2025</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative">
+        <img
+          src="/about.jpg"
+          alt="Proceso de fabricación metalúrgica"
+          class="rounded-sm w-full aspect-square object-cover shadow-xl"
+          loading="lazy"
+        />
+        <div class="absolute -bottom-4 -left-4 w-24 h-24 border-2 border-accent rounded-sm" aria-hidden="true" />
+      </div>
+    </div>
+
+    <!-- Values -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {values.map((v) => (
+        <div class="bg-base-200 border border-base-300 rounded-sm p-6 hover:border-accent/40 transition-colors">
+          <v.icon size={28} class="text-accent mb-4" />
+          <h3 class="font-display text-xl mb-2">{v.title}</h3>
+          <p class="text-base-content/60 text-sm leading-relaxed">{v.desc}</p>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
