@@ -5,7 +5,7 @@ import ContactItem from './ContactItem.astro';
 
 const { phone, email, address } = Astro.props;
 ---
-<footer class="bg-base-200 text-base-content">
+<footer class="bg-neutral text-neutral-content">
   <div class="footer sm:footer-horizontal justify-between max-w-7xl mx-auto px-4 py-10">
     <aside>
       <Logo />
@@ -25,7 +25,7 @@ const { phone, email, address } = Astro.props;
       />
     </address>
   </div>
-  <div class="border-base-300 border-t">
-    <p class="max-w-7xl mx-auto px-4 py-4 text-center text-sm text-base-content/60">© {new Date().getFullYear()} Industrias Proba SA. Todos los derechos reservados.</p>
+  <div class="border-neutral-content/10 border-t">
+    <p class="max-w-7xl mx-auto px-4 py-4 text-center text-sm text-neutral-content/40">© {new Date().getFullYear()} Industrias Proba SA. Todos los derechos reservados.</p>
   </div>
 </footer>
