@@ -6,6 +6,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 const { title: pageTitle } = Astro.props;
+const isHome = Astro.url.pathname === '/';
 const siteName = 'Industrias Proba SA';
 const title = pageTitle ? `${pageTitle} | ${siteName}` : siteName;
 const phone = '+54 11 4454 7857';
@@ -21,7 +22,7 @@ const address = 'DWB Lomas del Mirador Buenos Aires AR, Cabrera 92, B1752, Argen
 </head>
 <body>
   <Header />
-  <main>
+  <main class:list={[!isHome && "pt-16"]}>
     <slot />
   </main>
   <Footer
