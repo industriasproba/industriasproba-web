@@ -1,0 +1,66 @@
+---
+import { Hammer, Zap, PenTool, Repeat2 } from '@lucide/astro';
+
+const { variant = 'dark' } = Astro.props;
+const isDark = variant === 'dark';
+
+const services = [
+  {
+    icon: Hammer,
+    title: "Estampado metálico",
+    desc: "Balancines y presnsas de hasta 400 toneladas.",
+  },
+  {
+    icon: Zap,
+    title: "Soldadura por proyección",
+    desc: "Incorporación de tuercas y fijaciones mediante soldadura por proyección automatizada.",
+  },
+  {
+    icon: PenTool,
+    title: "Matricería",
+    desc: "Diseño, desarrollo y mantenimiento de herramientas.",
+  },
+  {
+    icon: Repeat2,
+    title: "Alimentadores",
+    desc: "Producción automatizada con alimentadores de fleje.",
+  },
+];
+---
+
+<section id="servicios" class:list={["py-16", isDark ? "bg-neutral" : "bg-base-100"]}>
+  <div class="max-w-7xl mx-auto px-4">
+
+    <header class="text-center mb-16">
+      <p class="text-accent font-medium uppercase tracking-[0.25em] text-sm mb-3">
+        Qué hacemos
+      </p>
+      <h2 class:list={["text-3xl md:text-5xl mb-4", isDark ? "text-neutral-content" : "text-base-content"]}>
+        Nuestros servicios
+      </h2>
+      <p class:list={["max-w-xl mx-auto leading-relaxed", isDark ? "text-neutral-content/60" : "text-base-content/60"]}>
+        Ofrecemos soluciones metalúrgicas integrales, adaptándonos a las necesidades de cada proyecto.
+      </p>
+    </header>
+
+    <div class="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+      {services.map((s) => (
+        <div class:list={[
+          "border rounded-sm p-8 transition-colors group",
+          isDark
+            ? "border-neutral-content/10 hover:border-accent/50"
+            : "border-base-300 hover:border-accent/50 bg-base-200"
+        ]}>
+          <s.icon size={32} class="text-accent mb-5 group-hover:scale-110 transition-transform" />
+          <h3 class:list={["font-display text-2xl mb-3", isDark ? "text-neutral-content" : "text-base-content"]}>
+            {s.title}
+          </h3>
+          <p class:list={["text-sm leading-relaxed", isDark ? "text-neutral-content/60" : "text-base-content/60"]}>
+            {s.desc}
+          </p>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
