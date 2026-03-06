@@ -69,24 +69,14 @@ const address = 'Cabrera 92, B1752, Lomas del Mirador, Buenos Aires, Argentina';
 
       <!-- Form -->
       <form id="contact-form" novalidate class="md:col-span-3 flex flex-col gap-5">
-        <div class="grid sm:grid-cols-2 gap-5">
-          <fieldset class="fieldset">
-            <legend class="fieldset-legend">Nombre</legend>
-            <input
-              id="nombre" name="nombre" type="text" required
-              placeholder="Tu nombre"
-              class="input input-bordered w-full focus:border-accent"
-            />
-          </fieldset>
-          <fieldset class="fieldset">
-            <legend class="fieldset-legend">Email</legend>
-            <input
-              id="email" name="email" type="email" required
-              placeholder="tu@email.com"
-              class="input input-bordered w-full focus:border-accent"
-            />
-          </fieldset>
-        </div>
+        <fieldset class="fieldset">
+          <legend class="fieldset-legend">Nombre</legend>
+          <input
+            id="nombre" name="nombre" type="text" required
+            placeholder="Tu nombre"
+            class="input input-bordered w-full focus:border-accent"
+          />
+        </fieldset>
 
         <fieldset class="fieldset flex-1 flex flex-col">
           <legend class="fieldset-legend">Mensaje</legend>
@@ -125,10 +115,9 @@ const address = 'Cabrera 92, B1752, Lomas del Mirador, Buenos Aires, Argentina';
     e.preventDefault();
     const data = new FormData(form);
     const nombre = data.get('nombre') as string;
-    const email = data.get('email') as string;
     const mensaje = data.get('mensaje') as string;
     const subject = encodeURIComponent(`Consulta desde la web - ${nombre}`);
-    const body = encodeURIComponent(`Nombre: ${nombre}\nEmail: ${email}\n\n${mensaje}`);
-    window.location.href = `mailto:direccion@industriasproba.com.ar?subject=${subject}&body=${body}`;
+    const body = encodeURIComponent(`Nombre: ${nombre}\n\n${mensaje}`);
+    window.open(`mailto:direccion@industriasproba.com.ar?subject=${subject}&body=${body}`, '_blank');
   });
 </script>
